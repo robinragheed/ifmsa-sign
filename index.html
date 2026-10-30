@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <base target="_top">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="referrer" content="no-referrer">
+  <title>IFMSA-Kurdistan Receipt</title>
+  <link rel="icon" href="https://ifmsakurdistan.org/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Noto+Sans+Arabic:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    /* Colours and font taken from ifmsakurdistan.org */
+    :root {
+      --navy: #111f74; --navy-dark: #071140; --sky: #669be1; --bg: #f5f7fc;
+      --text: #071140; --muted: #5b6488; --line: rgba(17, 31, 116, .10); --red: #c62828;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: Montserrat, "Noto Sans Arabic", system-ui, sans-serif; background: var(--bg); color: var(--text); -webkit-font-smoothing: antialiased; }
+
+    .topbar { background: var(--navy); display: flex; align-items: center; gap: 10px; padding: 12px 18px; border-bottom: 1px solid rgba(255,255,255,.08); }
+    .topbar img { width: 38px; height: 38px; }
+    .topbar span { color: #fff; font-weight: 700; font-size: 17px; line-height: 1.1; }
+    .hero { background: linear-gradient(180deg, var(--navy) 0%, var(--navy) 70%, #2a3a8f 100%); color: #fff; padding: 26px 20px 74px; }
+    .hero-inner { max-width: 520px; margin: 0 auto; }
+    .hero .eyebrow { display: inline-block; background: rgba(102,155,225,.2); color: var(--sky); font-size: 12px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; padding: 6px 12px; border-radius: 10px; }
+    .hero h1 { margin: 12px 0 6px; font-size: 28px; font-weight: 700; line-height: 1.15; }
+    .hero p { margin: 0; font-size: 14px; color: rgba(255,255,255,.8); line-height: 1.5; }
+
+    main { max-width: 520px; margin: -52px auto 0; padding: 0 16px 24px; }
+    .card { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 18px; box-shadow: 0 10px 30px rgba(17,31,116,.08); margin-bottom: 14px; }
+    h2 { font-size: 17px; font-weight: 700; margin: 0 0 10px; color: var(--navy); }
+    .row { display: flex; justify-content: space-between; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--line); font-size: 15px; }
+    .row:last-child { border-bottom: 0; }
+    .row .label { color: var(--muted); }
+    .row .value { font-weight: 600; text-align: right; }
+    .row .value.amount { font-size: 20px; font-weight: 700; color: var(--navy); }
+    label.confirm { display: flex; gap: 12px; align-items: flex-start; font-size: 15px; line-height: 1.45; }
+    label.confirm input { width: 24px; height: 24px; flex: none; margin: 0; accent-color: var(--navy); }
+    .pad-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
+    .pad-wrap { position: relative; border: 2px dashed rgba(102,155,225,.6); border-radius: 12px; background: #fbfcff; }
+    canvas { display: block; width: 100%; height: 210px; touch-action: none; border-radius: 12px; }
+    .pad-hint { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; color: #9aa3c4; pointer-events: none; font-size: 15px; }
+    .btn { display: block; width: 100%; padding: 15px; border: 0; border-radius: 10px; font-family: inherit; font-size: 16px; font-weight: 600; text-align: center; text-decoration: none; cursor: pointer; }
+    .btn-primary { background: var(--navy); color: #fff; box-shadow: 0 6px 18px rgba(17,31,116,.25); }
+    .btn-primary:disabled { background: #8a93bf; box-shadow: none; }
+    .btn-clear { background: rgba(102,155,225,.15); border: 0; border-radius: 10px; color: var(--navy); font-family: inherit; font-weight: 600; font-size: 14px; padding: 6px 12px; cursor: pointer; }
+    .error { color: var(--red); font-size: 14px; min-height: 20px; margin: 4px 2px 10px; }
+    .muted { color: var(--muted); font-size: 14px; line-height: 1.5; }
+    .center { text-align: center; }
+    .big-icon { font-size: 52px; text-align: center; margin: 4px 0 8px; }
+    footer { text-align: center; font-size: 12px; color: var(--muted); padding: 8px 16px 28px; }
+    footer a { color: var(--navy); font-weight: 600; text-decoration: none; }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <img alt="" src="data:image/png;base64,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">
+    <span id="org"></span>
+  </div>
+  <section class="hero">
+    <div class="hero-inner">
+      <span class="eyebrow">Membership</span>
+      <h1 id="subtitle"></h1>
+      <p id="tagline">Empowering Medical Students in Kurdistan</p>
+    </div>
+  </section>
+  <main id="app"></main>
+  <footer><a href="https://ifmsakurdistan.org" target="_blank">ifmsakurdistan.org</a></footer>
+
+  <script>window.HOSTED = {"backends":{"test":"https://script.google.com/macros/s/AKfycbxgk-qxKJQODEQBCyoRBw6dTbP8frAHgbNr1T7us6ROnVIpvBglXdD_ezB40IPxdKmTqQ/exec","duhok":"https://script.google.com/macros/s/AKfycbyV5xW09gecqiJd1kO9GqLadbzEmdORbqcgvFsHOcywsRKpxUMVIdnCixfHj1aB1ZV7/exec","hawler":"https://script.google.com/macros/s/AKfycbyoWe2OyDge-WmE18XDZV5fiZYSe8ONylwx7k5JF8gBJwJxKBD0pSmHEATflTDf2RSybQ/exec","koya":"https://script.google.com/macros/s/AKfycbwQjJc5VkhCPx2mT9iap2u7QZgmp3S5NmkH1duSpthTgdwR4C_YhlSMyL3SV8lx6zb6Fg/exec","sulaimani":"https://script.google.com/macros/s/AKfycbwo0x1QsFI4EN0yLBNhwWfZApTn1ZXbgE6slCSryPWqXLKgpBqMSRiflZZlGD2CdLWc1Q/exec","zakho":"https://script.google.com/macros/s/AKfycbwq-ZJVa6rfIvDHHTh0AVu7Fbkgk05wxK6_Rb7hZSd0ogGTycwEoXo9S2Eit1QciZpV/exec"}};</script>
+  <script>
+    // On Google's own page the server fills this in. On the hosted page it is null and loaded at the bottom.
+    let DATA = null;
+    const app = document.getElementById('app');
+
+    // ---- tiny DOM helpers ----
+    function el(tag, props, ...kids) {
+      const n = document.createElement(tag);
+      Object.assign(n, props || {});
+      kids.flat().forEach(k => { if (k != null && k !== '') n.append(k); });
+      return n;
+    }
+    const card = (...kids) => el('div', { className: 'card' }, ...kids);
+    const row = (label, value, cls) => el('div', { className: 'row' },
+      el('span', { className: 'label', textContent: label }),
+      el('span', { className: 'value ' + (cls || ''), textContent: value || '' }));
+    const subtitle = t => { document.getElementById('subtitle').textContent = t || ''; };
+    const show = (...nodes) => { app.replaceChildren(...nodes); window.scrollTo(0, 0); };
+
+    // ---- signature pad ----
+    function makePad() {
+      const canvas = el('canvas');
+      const hint = el('div', { className: 'pad-hint', textContent: '✍️ Sign here with your finger' });
+      const node = el('div', { className: 'pad-wrap' }, canvas, hint);
+      let ctx, drawing = false, last = null, empty = true;
+
+      function reset() {
+        const ratio = Math.max(window.devicePixelRatio || 1, 1);
+        const rect = canvas.getBoundingClientRect();
+        canvas.width = Math.round(rect.width * ratio);
+        canvas.height = Math.round(rect.height * ratio);
+        ctx = canvas.getContext('2d');
+        ctx.scale(ratio, ratio);
+        ctx.lineWidth = 2.6;
+        ctx.lineCap = 'round';
+        ctx.lineJoin = 'round';
+        ctx.strokeStyle = ctx.fillStyle = '#0d1b4c';
+        empty = true;
+        hint.style.display = '';
+      }
+      function pos(e) {
+        const r = canvas.getBoundingClientRect();
+        return { x: e.clientX - r.left, y: e.clientY - r.top };
+      }
+      canvas.addEventListener('pointerdown', e => {
+        e.preventDefault();
+        canvas.setPointerCapture(e.pointerId);
+        drawing = true;
+        last = pos(e);
+        ctx.beginPath();
+        ctx.arc(last.x, last.y, ctx.lineWidth / 2, 0, Math.PI * 2);
+        ctx.fill();
+        if (empty) { empty = false; hint.style.display = 'none'; }
+      });
+      canvas.addEventListener('pointermove', e => {
+        if (!drawing) return;
+        e.preventDefault();
+        const p = pos(e);
+        ctx.beginPath();
+        ctx.moveTo(last.x, last.y);
+        ctx.lineTo(p.x, p.y);
+        ctx.stroke();
+        last = p;
+      });
+      ['pointerup', 'pointercancel', 'pointerleave'].forEach(t => canvas.addEventListener(t, () => { drawing = false; }));
+      window.addEventListener('resize', () => { if (empty) reset(); });
+
+      // Crops to the drawn area and shrinks to at most 600px wide.
+      function toDataURL() {
+        const W = canvas.width, H = canvas.height;
+        const px = canvas.getContext('2d').getImageData(0, 0, W, H).data;
+        let minX = W, minY = H, maxX = -1, maxY = -1;
+        for (let y = 0; y < H; y++) {
+          for (let x = 0; x < W; x++) {
+            if (px[(y * W + x) * 4 + 3] > 0) {
+              if (x < minX) minX = x; if (x > maxX) maxX = x;
+              if (y < minY) minY = y; if (y > maxY) maxY = y;
+            }
+          }
+        }
+        if (maxX < 0) return null;
+        const pad = 12;
+        minX = Math.max(0, minX - pad); minY = Math.max(0, minY - pad);
+        maxX = Math.min(W - 1, maxX + pad); maxY = Math.min(H - 1, maxY + pad);
+        const cw = maxX - minX + 1, ch = maxY - minY + 1;
+        const scale = Math.min(1, 600 / cw);
+        const out = document.createElement('canvas');
+        out.width = Math.max(1, Math.round(cw * scale));
+        out.height = Math.max(1, Math.round(ch * scale));
+        out.getContext('2d').drawImage(canvas, minX, minY, cw, ch, 0, 0, out.width, out.height);
+        return out.toDataURL('image/png');
+      }
+
+      return { node, reset, isEmpty: () => empty, toDataURL };
+    }
+
+    function padCard(pad, title) {
+      return card(
+        el('div', { className: 'pad-head' },
+          el('strong', { textContent: title }),
+          el('button', { className: 'btn-clear', textContent: 'Clear', onclick: () => pad.reset() })),
+        pad.node);
+    }
+
+    // ---- pages ----
+    function renderMessage(title, text) {
+      subtitle(title);
+      show(card(el('p', { className: 'muted', style: 'margin:0;font-size:15px', textContent: text })));
+    }
+
+    function renderDone(receiptUrl) {
+      subtitle('Membership Fee Receipt');
+      show(card(
+        el('div', { className: 'big-icon', textContent: '✅' }),
+        el('h2', { className: 'center', textContent: 'Thank you' + (DATA.name ? ', ' + DATA.name : '') + '!' }),
+        el('p', { className: 'muted center', textContent: 'Your receipt is ready. If you gave an email address, a copy was sent there too.' }),
+        receiptUrl ? el('a', { className: 'btn btn-primary', href: receiptUrl, target: '_blank', textContent: '📄 Open my receipt' }) : null
+      ));
+    }
+
+    function renderMember() {
+      subtitle('Membership Fee Receipt');
+      const pad = makePad();
+      const agree = el('input', { type: 'checkbox' });
+      const err = el('div', { className: 'error' });
+      const btn = el('button', { className: 'btn btn-primary', textContent: 'Sign & get my receipt' });
+      const exempt = DATA.type === 'Exempted Member';   // pays nothing, so "paid" wording would be wrong
+
+      show(
+        card(
+          el('h2', { textContent: 'Please check your details' }),
+          row('Name', DATA.name),
+          DATA.email ? row('Email', DATA.email) : null,
+          row('Membership', DATA.type),
+          DATA.lc ? row('Local committee', DATA.lc) : null,
+          row(exempt ? 'Fee' : 'Amount paid', DATA.amount + ' IQD', 'amount'),
+          row(exempt ? 'Recorded by' : 'Paid to', DATA.delegate),
+          row('Date', DATA.paidDate),
+          row('Receipt No', DATA.receiptNo)),
+        card(el('label', { className: 'confirm' }, agree,
+          el('span', { textContent: exempt
+            ? `I confirm my membership is exempted from the fee (0 IQD), as recorded by ${DATA.delegate}.`
+            : `I confirm I paid ${DATA.amount} IQD to ${DATA.delegate}.` }))),
+        padCard(pad, 'Your signature'),
+        err,
+        btn,
+        el('p', { className: 'muted center', textContent: 'If any detail is wrong, do not sign. Contact your delegate.' })
+      );
+      pad.reset();
+
+      btn.onclick = () => {
+        err.textContent = '';
+        if (!agree.checked) { err.textContent = 'Please tick the box to confirm the payment.'; return; }
+        if (pad.isEmpty()) { err.textContent = 'Please sign in the box first.'; return; }
+        busy(btn, true, 'Making your receipt… please wait');
+        rpc('member', { token: DATA.token, signature: pad.toDataURL(), agreed: true },
+          res => {
+            if (res && res.ok) return renderDone(res.receiptUrl);
+            err.textContent = (res && res.error) || 'Something went wrong. Please try again.';
+            busy(btn, false, 'Sign & get my receipt');
+          },
+          () => {
+            err.textContent = 'Connection problem. Check your internet and try again.';
+            busy(btn, false, 'Sign & get my receipt');
+          });
+      };
+    }
+
+    function renderDelegate() {
+      subtitle('Delegate signature setup');
+      const pad = makePad();
+      const err = el('div', { className: 'error' });
+      const btn = el('button', { className: 'btn btn-primary', textContent: 'Save my signature' });
+
+      show(
+        card(
+          el('h2', { textContent: 'Hello ' + DATA.name + ' 👋' }),
+          el('p', { className: 'muted', textContent: 'Draw your signature below. It will be printed on every receipt for payments you collect.' }),
+          DATA.hasSignature ? el('p', { className: 'muted', textContent: 'You already saved a signature. Saving again replaces it for future receipts.' }) : null),
+        padCard(pad, 'Your signature'),
+        err,
+        btn
+      );
+      pad.reset();
+
+      btn.onclick = () => {
+        err.textContent = '';
+        if (pad.isEmpty()) { err.textContent = 'Please sign in the box first.'; return; }
+        busy(btn, true, 'Saving…');
+        rpc('delegate', { token: DATA.token, signature: pad.toDataURL() },
+          res => {
+            if (res && res.ok) return renderMessage('✅ Signature saved', 'Thank you! You can now tick "Paid" in the Tracker for members who pay you.');
+            err.textContent = (res && res.error) || 'Something went wrong. Please try again.';
+            busy(btn, false, 'Save my signature');
+          },
+          () => {
+            err.textContent = 'Connection problem. Check your internet and try again.';
+            busy(btn, false, 'Save my signature');
+          });
+      };
+    }
+
+    function busy(btn, on, text) {
+      btn.disabled = on;
+      btn.textContent = text;
+    }
+
+    const pages = {
+      member: renderMember,
+      delegate: renderDelegate,
+      done: () => renderDone(DATA.receiptUrl),
+      message: () => renderMessage(DATA.title, DATA.text),
+    };
+    function start() {
+      document.getElementById('org').textContent = DATA.org || 'IFMSA-Kurdistan';
+      (pages[DATA.mode] || (() => renderMessage('Error', 'Unknown page.')))();
+    }
+
+    // ---- talking to the server ----
+    // On Google's own page google.script.run does it. On the hosted page the same Google backend answers plain web
+    // requests instead: GET ?api=load reads the details and a POST saves the signature (no cookies are sent, so
+    // being signed in to several Google accounts cannot get in the way).
+    let BACKEND = '';
+    function rpc(action, payload, onOk, onFail) {
+      if (window.google && google.script && google.script.run) {
+        const run = google.script.run.withSuccessHandler(onOk).withFailureHandler(onFail);
+        if (action === 'member') run.submitMemberSignature(payload.token, payload.signature, payload.agreed === true);
+        else run.submitDelegateSignature(payload.token, payload.signature);
+        return;
+      }
+      fetch(BACKEND, { method: 'POST', body: JSON.stringify(Object.assign({ action }, payload)) })
+        .then(r => r.json()).then(onOk).catch(onFail);
+    }
+
+    function notice(title, text) { return { mode: 'message', org: 'IFMSA-Kurdistan', title, text }; }
+
+    if (DATA) {
+      start();
+    } else {
+      // Hosted page. The link looks like ?lc=duhok&t=<token> (member) or ?lc=duhok&d=<token> (delegate), and only the
+      // backends listed in window.HOSTED (written when the page is built) are ever contacted.
+      const q = new URLSearchParams(location.search);
+      const base = ((window.HOSTED && HOSTED.backends) || {})[(q.get('lc') || '').toLowerCase()];
+      const kind = q.get('t') ? 't' : (q.get('d') ? 'd' : '');
+      if (!base || !kind) {
+        DATA = notice('Link not complete', 'Please open the exact link you were sent.');
+        start();
+      } else {
+        BACKEND = base;
+        subtitle('Membership');
+        show(card(el('p', { className: 'muted', style: 'margin:0;font-size:15px', textContent: 'Loading…' })));
+        fetch(base + '?api=load&' + kind + '=' + encodeURIComponent(q.get(kind)))
+          .then(r => r.json())
+          .then(d => { DATA = d; start(); })
+          .catch(() => { DATA = notice('Could not connect', 'Check your internet connection and open the link again.'); start(); });
+      }
+    }
+  </script>
+</body>
+</html>
